@@ -117,6 +117,7 @@ void insercao(tarefa *tarefas) {
 
 	printf("Prioridade (1 a 3): ");
 	scanf("%d", &(nova_tarefa->prioridade));
+	getchar();
 
 	nova_tarefa->concluida = 0;
 
@@ -264,9 +265,9 @@ void salvar_tarefas(tarefa *tarefas) {
 		for (tarefa *trf = tarefas->prox; trf != NULL; trf = trf->prox) 
 			fprintf(fp, "%s|%s|%s|%s|%d|%d\n", trf->nome, trf->descricao, trf->data_limite, trf->categoria, trf->prioridade, trf->concluida);
 		printf("\nTarefas Salvas com Sucesso!\n");
+		
+		fclose(fp);
 	}
-
-	fclose(fp);
 }
 
 void carregar_tarefas(tarefa *tarefas) {
